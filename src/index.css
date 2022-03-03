@@ -1,0 +1,33 @@
+html {
+    background-color: #081b27;
+}
+
+.ant-carousel .slick-dots {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.ant-carousel .slick-dots li button {
+    height: 4px !important;
+    align-items: center;
+}
+
+/* .ant-tabs-tab-active {
+    background-color: gray !important;
+    transition: all 0.3s;
+} */
+.ant-table-fixed {
+    table-layout: fixed;
+}
+
+.ant-table-tbody > tr > td {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+@media only screen and (max-width: 767px) {
+    .ant-tabs-left > .ant-tabs-content-holder > .ant-tabs-content > .ant-tabs-tabpane,
+    .ant-tabs-left > div > .ant-tabs-content-holder > .ant-tabs-content > .ant-tabs-tabpane {
+        padding-left: 0px !important;
+    }
+}
