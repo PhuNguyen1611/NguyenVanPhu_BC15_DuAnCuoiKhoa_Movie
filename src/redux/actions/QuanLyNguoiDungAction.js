@@ -15,7 +15,7 @@ export const dangNhapAction = (thongTinDangNhap) => {
                 })
                 history.goBack()
             }
-            console.log('result', result);
+            // console.log('result', result);
         } catch (error) {
             console.log('error', error.response.data);
         }
@@ -34,7 +34,7 @@ export const dangKyAction = (thongTinDangKy) => {
                 })
                 history.goBack()
             }
-            console.log('result', result);
+            // console.log('result', result);
         } catch (error) {
             console.log('error', error.response.data);
         }
@@ -53,7 +53,7 @@ export const layThongTinTaiKhoanAction = () => {
                 })
             }
             dispatch(hideLoadingAction)
-            console.log('result', result);
+            // console.log('result', result);
         } catch (error) {
             console.log('error', error.response?.data);
         }
@@ -64,7 +64,7 @@ export const capNhatThongTinTaiKhoanAction = (thongTinCapNhat) => {
     return async (dispatch) => {
         try {
             const result = await quanLyNguoiDungServices.capNhatThongTinTaiKhoan(thongTinCapNhat);
-            console.log('result', result)
+            // console.log('result', result)
             if (result.data.statusCode === 200) {
                 alert('Cập nhật thành công')
                 await dispatch({
@@ -85,7 +85,7 @@ export const layDanhSachNguoiDungAction = (tuKhoa = '') => {
             if (tuKhoa === '') {
                 dispatch(displayLoadingAction)
                 const result = await quanLyNguoiDungServices.layDanhSachNguoiDung(tuKhoa)
-                console.log('result', result)
+                // console.log('result', result)
                 await dispatch({
                     type: LAY_DANH_SACH_NGUOI_DUNG_ACTION,
                     danhSachNguoiDung: result.data.content
@@ -93,7 +93,7 @@ export const layDanhSachNguoiDungAction = (tuKhoa = '') => {
                 dispatch(hideLoadingAction)
             } else {
                 const result = await quanLyNguoiDungServices.layDanhSachNguoiDung(tuKhoa)
-                console.log('result', result)
+                // console.log('result', result)
                 await dispatch({
                     type: LAY_DANH_SACH_NGUOI_DUNG_ACTION,
                     danhSachNguoiDung: result.data.content
@@ -115,7 +115,7 @@ export const layDanhSachLoaiNguoiDungAction = () => {
                     loaiNguoiDung: result.data.content
                 })
             }
-            console.log('result', result);
+            // console.log('result', result);
         } catch (error) {
             console.log('error', error.response.data);
         }
@@ -129,7 +129,7 @@ export const themNguoiDungAction = (thongTinDangKy) => {
             if (result.data.statusCode === 200) {
                 alert('Success!')
             }
-            console.log('result', result);
+            // console.log('result', result);
         } catch (error) {
             console.log('error', error.response.data);
         }
@@ -144,7 +144,7 @@ export const xoaNguoiDungAction = (taiKhoan) => {
                 alert('Success!')
                 dispatch(layDanhSachNguoiDungAction())
             }
-            console.log('result', result);
+            // console.log('result', result);
         } catch (error) {
             console.log('error', error.response.data);
         }
@@ -161,7 +161,7 @@ export const layThongTinNguoiDungAction = (taiKhoan) => {
                     thongTinNguoiDung: result.data.content
                 })
             }
-            console.log('result', result);
+            // console.log('result', result);
         } catch (error) {
             console.log('error', error.response?.data);
         }
@@ -172,7 +172,7 @@ export const capNhatThongTinNguoiDungAction = (thongTinCapNhat) => {
     return async (dispatch) => {
         try {
             const result = await quanLyNguoiDungServices.capNhatThongTinNguoiDung(thongTinCapNhat);
-            console.log('result', result)
+            // console.log('result', result)
             if (result.data.statusCode === 200) {
                 alert('Cập nhật thành công')
                 history.push('/admin/users')

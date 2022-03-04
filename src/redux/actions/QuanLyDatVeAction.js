@@ -10,7 +10,7 @@ export const layChiTietPhongVeAction = (maLichChieu) => {
         try {
             dispatch(displayLoadingAction)
             const result = await quanLyDatVeServices.layChiTietPhongVe(maLichChieu)
-            console.log('result', result);
+            // console.log('result', result);
             if (result.status === 200) {
                 await dispatch({
                     type: GET_CHI_TIET_PHONG_VE,
@@ -31,7 +31,7 @@ export const datVeAction = (thongTinDatVe = new ThongTinDatVe()) => {
         try {
             dispatch(displayLoadingAction)
             const result = await quanLyDatVeServices.datVe(thongTinDatVe)
-            console.log('result', result.data.content);
+            // console.log('result', result.data.content);
             await dispatch(layChiTietPhongVeAction(thongTinDatVe.maLichChieu))
             await dispatch({ type: DAT_VE_HOAN_TAT })
             await dispatch(hideLoadingAction)

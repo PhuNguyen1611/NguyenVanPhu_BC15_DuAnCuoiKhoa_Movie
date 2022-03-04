@@ -9,7 +9,7 @@ export const layDanhSachPhimAction = (tenPhim = '') => {
             if (tenPhim === '') {
                 dispatch(displayLoadingAction)
                 const result = await quanLyPhimServices.layDanhSachPhim(tenPhim)
-                console.log('result', result)
+                // console.log('result', result)
                 await dispatch({
                     type: GET_DANH_SACH_PHIM,
                     arrPhim: result.data.content
@@ -17,7 +17,7 @@ export const layDanhSachPhimAction = (tenPhim = '') => {
                 dispatch(hideLoadingAction)
             } else {
                 const result = await quanLyPhimServices.layDanhSachPhim(tenPhim)
-                console.log('result', result)
+                // console.log('result', result)
                 await dispatch({
                     type: GET_DANH_SACH_PHIM,
                     arrPhim: result.data.content
@@ -34,8 +34,7 @@ export const themPhimUploadHinhAction = (formData) => {
         try {
             const result = await quanLyPhimServices.themPhimUploadHinh(formData)
             alert('Thêm phim thành công')
-
-            console.log('result', result)
+            // console.log('result', result)
             history.push('/admin/films')
         } catch (errors) {
             console.log('error', errors)
@@ -47,7 +46,7 @@ export const layThongTinPhimAction = (maPhim) => {
     return async (dispatch) => {
         try {
             const result = await quanLyPhimServices.layThongTinPhim(maPhim)
-            console.log('result', result.data.content)
+            // console.log('result', result.data.content)
             dispatch({
                 type: GET_THONG_TIN_PHIM,
                 thongTinPhim: result.data.content
@@ -63,7 +62,7 @@ export const capNhatPhimUploadAction = (formData) => {
         try {
             const result = await quanLyPhimServices.capNhatPhimUpload(formData)
             alert('Cập nhật phim thành công')
-            console.log('result', result)
+            // console.log('result', result)
             dispatch(layDanhSachPhimAction())
             history.push('/admin/films')
         } catch (errors) {
@@ -76,7 +75,7 @@ export const xoaPhimAction = (maPhim) => {
     return async (dispatch) => {
         try {
             const result = await quanLyPhimServices.xoaPhim(maPhim)
-            console.log('xoaphim', result)
+            // console.log('xoaphim', result)
             alert('Xóa phim thành công')
             dispatch(layDanhSachPhimAction())
         } catch (errors) {

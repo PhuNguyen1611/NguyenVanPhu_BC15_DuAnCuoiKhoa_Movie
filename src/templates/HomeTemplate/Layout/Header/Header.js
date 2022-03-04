@@ -45,7 +45,7 @@ export default function Header(props) {
             <NavLink to="/" aria-label="Back to homepage" className="flex items-center lg:p-2">
                 <img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" alt="" />
             </NavLink>
-            <ul className={(showNav ? "left-0 " : "left-full ") + "lg:static fixed bottom-0 top-16 lg:flex lg:space-x-7 lg:bg-transparent bg-gray-500 bg-opacity-90 lg:w-auto w-full justify-between h-full lg:text-gray-500 text-white text-lg lg:text-[14px] lg:space-y-0 space-y-4 pt-3 lg:pt-[0!important]"}>
+            <ul className={(showNav ? "left-0 " : "left-full ") + "lg:static fixed bottom-0 top-16 lg:flex lg:space-x-7 lg:bg-transparent bg-gray-500 bg-opacity-95 lg:w-auto w-full justify-between h-full lg:text-gray-500 text-white text-lg lg:text-[14px] lg:space-y-0 space-y-4 pt-3 lg:pt-[0!important]"}>
 
                 <li className="flex justify-center">
                     <NavLink to="/home" className="flex items-center px-4 -mb-1 border-b-2 border-transparent text-white" activeClassName='border-b-1 border-white'>{t('Home')}</NavLink>

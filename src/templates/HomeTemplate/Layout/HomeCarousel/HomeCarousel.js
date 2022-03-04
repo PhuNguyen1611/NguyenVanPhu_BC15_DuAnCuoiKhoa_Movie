@@ -9,7 +9,6 @@ import { getCarouselAction } from '../../../../redux/actions/CarouselActions';
 export default function HomeCarousel(props) {
 
     const { arrImgCarousel } = useSelector(state => state.CarouselReducer)
-
     const dispatch = useDispatch();
 
     useEffect(//async
@@ -31,11 +30,8 @@ export default function HomeCarousel(props) {
             //     console.log('error', errors)
             // }
             const action = getCarouselAction()
-
             dispatch(action)
-
         }, [])
-
 
     const contentStyle = {
         color: '#fff',
@@ -44,7 +40,6 @@ export default function HomeCarousel(props) {
         background: '#364d79',
         backgroundRepeat: 'no-repeat',
     };
-
 
     const renderImg = () => {
         return arrImgCarousel.map((item, index) => {

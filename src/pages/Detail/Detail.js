@@ -6,23 +6,17 @@ import { layThongTinChiTietPhim } from '../../redux/actions/QuanLyRapActions';
 import moment from 'moment';
 import { NavLink } from 'react-router-dom';
 
-
 const { TabPane } = Tabs;
 
 export default function Detail(props) {
 
     const phimDetail = useSelector(state => state.QuanLyPhimReducer.phimDetail)
-
-    console.log({ phimDetail });
-
+    // console.log({ phimDetail });
     const dispatch = useDispatch()
 
     useEffect(() => {
-
         let { id } = props.match.params
-
         dispatch(layThongTinChiTietPhim(id))
-
     }, [])
 
     return (
@@ -40,7 +34,7 @@ export default function Detail(props) {
                             <div className='col-span-4 lg:col-span-3 ml-3'>
                                 <p className='text-md lg:text-lg'>Ngày chiếu: {moment(phimDetail.ngayKhoiChieu).format('DD.MM.YYYY')}</p>
                                 <p className='text-lg md:text-xl lg:text-2xl xl:text-4xl mb-3'>{phimDetail.tenPhim}</p>
-                                <p>{phimDetail.moTa}</p>
+                                <p className='text-[11px] sm:text-[14px]'>{phimDetail.moTa}</p>
                             </div>
                         </div>
                     </div>
@@ -55,7 +49,7 @@ export default function Detail(props) {
                                 <div className="fill"></div>
                             </div>
                         </div>
-                        <div className="leading-none flex justify-center w-full -mt-5">
+                        <div className="leading-none flex justify-center w-full -mt-5 scale-[0.8] sm:scale-[0.9] md:scale-[1]">
                             <span className="text-green-400 mr-3 inline-flex items-center leading-none text-lg pr-3 ">
                                 <svg className="w-4 h-4 mr-1" stroke="currentColor" strokeWidth={2} fill="none" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                                     <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
@@ -78,23 +72,23 @@ export default function Detail(props) {
                                 <Tabs tabPosition={'left'}>
                                     {phimDetail.heThongRapChieu?.map((htr, index) => {
                                         return <TabPane tab={
-                                            <div className='flex items-center'>
-                                                <img className='w-[40px] sm:w-[50px]' src={htr.logo} alt={htr.tenHeThongRap} />
-                                                <p className='text-md mb-0 ml-2 text-wrap w-[50px] sm:w-[auto]'>{htr.tenHeThongRap}</p>
+                                            <div className='flex items-center w-[60px] sm:w-auto'>
+                                                <img className='w-[30px] sm:w-[50px] object-cover' src={htr.logo} alt={htr.tenHeThongRap} />
+                                                <p className='text-[10px] sm:text-md mb-0 ml-2 text-wrap w-[50px] sm:w-[auto]'>{htr.tenHeThongRap}</p>
                                             </div>
                                         } key={index} >
                                             {htr.cumRapChieu?.map((cumRap, index) => {
                                                 return <div className='mt-2 mb-5' key={index}>
                                                     <div className='flex flex-row'>
-                                                        <img className='w-[40px] sm:w-[50px] h-[40px] sm:h-[50px]' src={cumRap.hinhAnh} alt={cumRap.tenCumRap} />
+                                                        <img className='w-[30px] sm:w-[50px] h-[30px] sm:h-[50px] object-cover' src={cumRap.hinhAnh} alt={cumRap.tenCumRap} />
                                                         <div className='ml-2'>
-                                                            <p className='text-md sm:text-lg lg:text-xl mb-0 font-semibold text-wrap'>{cumRap.tenCumRap}</p>
-                                                            <p className='text-wrap'>{cumRap.diaChi}</p>
+                                                            <p className='text-[12px] sm:text-md md:text-lg mb-0 font-semibold text-wrap'>{cumRap.tenCumRap}</p>
+                                                            <p className='text-[10px] sm:text-md text-wrap'>{cumRap.diaChi}</p>
                                                         </div>
                                                     </div>
                                                     <div className='grid grid-cols-4'>
                                                         {cumRap.lichChieuPhim?.map((lichChieu, index) => {
-                                                            return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index} className='col-span-1 hover:text-sky-500 text-black cursor-pointer text-wrap text-md lg:text-lg'>
+                                                            return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index} className='col-span-1 hover:text-sky-500 text-black cursor-pointer text-wrap text-[10px] sm:text-md lg:text-lg'>
                                                                 {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
                                                             </NavLink>
                                                         })}
@@ -114,7 +108,6 @@ export default function Detail(props) {
                         </TabPane>
                     </Tabs>
                 </div>
-
             </div>
         </div>
     )

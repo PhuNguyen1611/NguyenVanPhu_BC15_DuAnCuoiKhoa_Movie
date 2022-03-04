@@ -28,7 +28,7 @@ const Checkout = React.memo(props => {
         return <Redirect to='/login' />
     }
 
-    console.log({ chiTietPhongVe, danhSachGheDangDat });
+    // console.log({ chiTietPhongVe, danhSachGheDangDat });
 
     const { thongTinPhim, danhSachGhe } = chiTietPhongVe;
 
@@ -212,7 +212,7 @@ export default function (props) {
 
     return <div className='bg-white'>
         <Tabs tabBarExtraContent={operations} defaultActiveKey="1" activeKey={tabActive} onChange={(key) => {
-            console.log('key', key);
+            // console.log('key', key);
             dispatch({
                 type: CHANGE_TAB_ACTIVE,
                 number: key.toString()
@@ -240,7 +240,7 @@ const KetQuaDatVe = React.memo((props) => {
         dispatch(action)
     }, [])
 
-    console.log('thongTinNguoiDung', thongTinTaiKhoan);
+    // console.log('thongTinNguoiDung', thongTinTaiKhoan);
 
     const renderBookingTicketHistory = () => {
         return thongTinTaiKhoan.thongTinDatVe?.map((ticket, index) => {

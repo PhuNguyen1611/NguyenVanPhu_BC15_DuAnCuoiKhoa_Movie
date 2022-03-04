@@ -15,7 +15,7 @@ const layout = {
 };
 
 function callback(key) {
-    console.log(key);
+    // console.log(key);
 }
 
 export default function Profile(props) {
