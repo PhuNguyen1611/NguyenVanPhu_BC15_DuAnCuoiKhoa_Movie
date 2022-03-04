@@ -119,7 +119,7 @@ export default function Users(props) {
         <h3 className='text-2xl mb-4'>Quản lý người dùng</h3>
         <Button onClick={() => {
             history.push('/admin/users/adduser')
-        }}>Thêm người dùng</Button>
+        }} className='bg-white'>Thêm người dùng</Button>
         <Search className='my-3' placeholder="input search text" allowClear onSearch={onSearch} enterButton />
         <Table columns={columns} dataSource={data} onChange={onChange} rowKey="taiKhoan" />
     </div>;

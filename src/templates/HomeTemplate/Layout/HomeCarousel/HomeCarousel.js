@@ -43,7 +43,6 @@ export default function HomeCarousel(props) {
         textAlign: 'center',
         background: '#364d79',
         backgroundRepeat: 'no-repeat',
-
     };
 
 
@@ -52,14 +51,14 @@ export default function HomeCarousel(props) {
 
             return <div key={index}>
                 <div style={{ ...contentStyle }}>
-                    <img src={item.hinhAnh} className='w-full h-40vh md:h-65vh xl:h-screen' alt="" />
+                    <img src={item.hinhAnh} className='w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[650px]' alt="" />
                 </div>
             </div>
         })
     }
 
     return (
-        <Carousel >
+        <Carousel autoplay>
             {renderImg()}
         </Carousel>
     )

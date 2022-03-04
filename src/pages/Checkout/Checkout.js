@@ -61,7 +61,7 @@ const Checkout = React.memo(props => {
                         gheDuocChon: ghe
                     })
                 }} disabled={ghe.daDat || classGheKhachDangDat !== ''} className={`ghe ${classGheVip} ${classGheDaDat} ${classGheVipDaDat} ${classGheDangDat} ${classGheKhachDangDat} ${classGheMinhDat} `}>
-                    {ghe.daDat ? classGheMinhDat === 'gheMinhDat' ? <i className="fas fa-user text-[7px] sm:text-[9px] md:text-[11px] lg:text-[13px] xl:text-[14px]"></i> : <i className="fas fa-ban text-[7px] sm:text-[9px] md:text-[11px] lg:text-[13px] xl:text-[14px]"></i> : classGheKhachDangDat !== '' ? <i className="far fa-pause-circle text-[7px] sm:text-[9px] md:text-[11px] lg:text-[13px] xl:text-[14px]"></i> : ghe.stt}
+                    {ghe.daDat ? classGheMinhDat === 'gheMinhDat' ? <i className="fas fa-user"></i> : <i className="fas fa-ban"></i> : classGheKhachDangDat !== '' ? <i className="far fa-pause-circle"></i> : ghe.stt}
                 </button>
                 {(index + 1) % 16 === 0 ? <br /> : ''}
             </Fragment>
@@ -70,10 +70,10 @@ const Checkout = React.memo(props => {
 
     return (
         <div className='min-h-screen'>
-            <div className="grid grid-cols-12">
+            <div className="md:grid md:grid-cols-12 flex flex-col">
                 <div className="col-span-9">
                     <div className="flex flex-col items-center ">
-                        <div className="bg-black" style={{ width: '80%', height: 12 }}>
+                        <div className="bg-black w-full sm:w-11/12 lg:w-4/5" style={{ height: 12 }}>
                         </div>
                         <div className={`${style['trapezoid']}`}>
                         </div>
@@ -103,17 +103,17 @@ const Checkout = React.memo(props => {
                                         <button disabled={true} className='ghe gheVip'></button>
                                     </td>
                                     <td>
-                                        <button disabled={true} className='ghe gheDaDat'><i className="fas fa-ban text-[7px] sm:text-[9px] md:text-[11px] lg:text-[13px] xl:text-[14px]"></i></button>
-                                        <button disabled={true} className='ghe gheVipDaDat'><i className="fas fa-ban text-[7px] sm:text-[9px] md:text-[11px] lg:text-[13px] xl:text-[14px]"></i></button>
+                                        <button disabled={true} className='ghe gheDaDat'><i className="fas fa-ban"></i></button>
+                                        <button disabled={true} className='ghe gheVipDaDat'><i className="fas fa-ban"></i></button>
                                     </td>
                                     <td>
                                         <button disabled={true} className='ghe gheDangDat'></button>
                                     </td>
                                     <td>
-                                        <button disabled={true} className='ghe gheKhachDangDat'><i className="far fa-pause-circle text-[7px] sm:text-[9px] md:text-[11px] lg:text-[13px] xl:text-[14px]"></i></button>
+                                        <button disabled={true} className='ghe gheKhachDangDat'><i className="far fa-pause-circle"></i></button>
                                     </td>
                                     <td>
-                                        <button disabled={true} className='ghe gheMinhDat'><i className="fas fa-user text-[7px] sm:text-[9px] md:text-[11px] lg:text-[13px] xl:text-[14px]"></i></button>
+                                        <button disabled={true} className='ghe gheMinhDat'><i className="fas fa-user"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -128,7 +128,7 @@ const Checkout = React.memo(props => {
                     </h3>
                     <hr />
                     <div className='my-3'>
-                        <h3 className="text-2xl">{thongTinPhim.tenPhim}</h3>
+                        <h3 className="text-xl md:text-2xl">{thongTinPhim.tenPhim}</h3>
                         <p className='mb-1'>Địa điểm: {thongTinPhim.diaChi}</p>
                         <p className='mb-0'>Ngày chiếu: {thongTinPhim.ngayChieu} - {thongTinPhim.gioChieu} {thongTinPhim.tenRap}</p>
                     </div>
@@ -175,7 +175,7 @@ const Checkout = React.memo(props => {
                             thongTinDatVe.danhSachVe = danhSachGheDangDat
                             console.log(thongTinDatVe);
                             dispatch(datVeAction(thongTinDatVe))
-                        }} className="bg-green-500 text-white w-full text-center py-2 font-bold text-xl rounded-md cursor-pointer">
+                        }} className="bg-green-500 text-white w-full text-center py-2 font-bold text-md sm:text-lg md:text-xl rounded-md cursor-pointer">
                             ĐẶT VÉ
                         </div>
                     </div>
@@ -218,13 +218,13 @@ export default function (props) {
                 number: key.toString()
             })
         }}>
-            <TabPane tab={<div className='px-3'>01 CHỌN GHẾ & THANH TOÁN</div>} key="1">
+            <TabPane tab={<div className='px-1 sm:px-3 text-[10px] sm:text-[12px] md:text-[14px]'>01 CHỌN GHẾ & THANH TOÁN</div>} key="1">
                 <Checkout {...props} />
             </TabPane>
-            <TabPane tab={<div className='px-3'>02 KẾT QUẢ ĐẶT VÉ</div>} key="2">
+            <TabPane tab={<div className='px-1 sm:px-3 text-[10px] sm:text-[12px] md:text-[14px]'>02 KẾT QUẢ ĐẶT VÉ</div>} key="2">
                 <KetQuaDatVe {...props} />
             </TabPane>
-            <TabPane tab={<NavLink to='/' className='p-3 text-dark h-full'>TRỞ VỀ TRANG CHỦ</NavLink>}>
+            <TabPane tab={<NavLink to='/' className='px-1 sm:px-3 text-[10px] sm:text-[12px] md:text-[14px] text-dark h-full'>TRỞ VỀ TRANG CHỦ</NavLink>}>
             </TabPane>
         </Tabs>
     </div>
@@ -246,13 +246,13 @@ const KetQuaDatVe = React.memo((props) => {
         return thongTinTaiKhoan.thongTinDatVe?.map((ticket, index) => {
             return <tr key={index}>
                 <td>{index + 1}</td>
-                <td><img src={ticket.hinhAnh} alt={ticket.tenPhim} style={{ width: 50, height: 70, margin: '0 auto' }} /></td>
+                <td><img src={ticket.hinhAnh} alt={ticket.tenPhim} className='w-[35px] h-[50px] sm:w-[40px] sm:h-[60px] md:w-[45px] md:w-[65px] lg:w-[50px] lg:h-[70px]' style={{ margin: '0 auto' }} /></td>
                 <td className='w-60'><div className='font-semibold'>{ticket.tenPhim}</div></td>
                 <td>{ticket.maVe}</td>
                 <td>{moment(ticket.ngayDat).format('DD/MM/YYYY - hh:mm A')}</td>
                 <td style={{ width: 200, wordWrap: 'break-word' }}>{ticket.danhSachGhe?.map((ghe, index) => {
                     return <span className='px-1' key={index}>{ghe.tenGhe}
-                        {(index + 1) % 8 === 0 ? <br /> : ''}</span>
+                        {(index + 1) % 6 === 0 ? <br /> : ''}</span>
                 })}</td>
                 <td>{_.first(ticket.danhSachGhe).tenHeThongRap}</td>
                 <td>{_.first(ticket.danhSachGhe).tenRap}</td>
@@ -268,7 +268,7 @@ const KetQuaDatVe = React.memo((props) => {
                     <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Chúc quý khách xem phim vui vẻ!</p>
                 </div>
                 <div className="flex flex-wrap -m-2 justify-center">
-                    <table className="w-full text-center divide-y divide-gray-200">
+                    <table className="w-full text-center divide-y divide-gray-200 scale-[0.7] sm:scale-[1]">
                         <thead className="bg-gray-50">
                             <tr>
                                 <th className='px-2'>STT</th>

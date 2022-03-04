@@ -107,7 +107,7 @@ export default function Films(props) {
         <h3 className='text-2xl mb-4'>Quản lý phim</h3>
         <Button onClick={() => {
             history.push('/admin/films/addnew')
-        }}>Thêm phim</Button>
+        }} className='bg-white'>Thêm phim</Button>
         <Search className='my-3' placeholder="input search text" allowClear onSearch={onSearch} enterButton />
         <Table columns={columns} dataSource={data} onChange={onChange} rowKey="maPhim" />
     </div >;

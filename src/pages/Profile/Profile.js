@@ -48,13 +48,14 @@ export default function Profile(props) {
         return thongTinTaiKhoan.thongTinDatVe?.map((ticket, index) => {
             return <tr key={index}>
                 <td>{index + 1}</td>
-                <td><img src={ticket.hinhAnh} alt={ticket.tenPhim} style={{ width: 50, height: 70, margin: '0 auto' }} /></td>
+                <td><img src={ticket.hinhAnh} alt={ticket.tenPhim} className='w-[35px] h-[50px] sm:w-[40px] sm:h-[60px] md:w-[45px] md:w-[65px] lg:w-[50px] lg:h-[70px]' style={{ margin: '0 auto' }} /></td>
                 <td className='w-60'><div className='font-semibold'>{ticket.tenPhim}</div></td>
                 <td>{ticket.maVe}</td>
                 <td>{moment(ticket.ngayDat).format('DD/MM/YYYY - hh:mm A')}</td>
-                <td style={{ width: 200, wordWrap: 'break-word' }}>{ticket.danhSachGhe?.map((ghe, index) => {
+                <td style={{ wordWrap: 'break-word' }} >{ticket.danhSachGhe?.map((ghe, index) => {
                     return <span className='px-1' key={index}>{ghe.tenGhe}
-                        {(index + 1) % 8 === 0 ? <br /> : ''}</span>
+                        {(index + 1) % 6 === 0 ? <br /> : ''}
+                    </span>
                 })}</td>
                 <td>{_.first(ticket.danhSachGhe).tenHeThongRap}</td>
                 <td>{_.first(ticket.danhSachGhe).tenRap}</td>
@@ -87,7 +88,7 @@ export default function Profile(props) {
                             <Form.Item label="Mã loại người dùng" >
                                 <Select options={[{ label: 'Khách Hàng', value: 'KhachHang' }, { label: 'Quản Trị', value: 'QuanTri' }]} onChange={(value) => {
                                     if (value === 'QuanTri') {
-                                        alert('Khi chuyển thành Quản Trị, bạn sẽ có quyền truy cập vào trang admin tuy nhiên bạn không nên xóa phim và tài khoản sẵn có!');
+                                        alert('Khi chuyển thành Quản Trị, bạn sẽ có quyền truy cập vào trang admin tuy nhiên bạn không nên xóa phim và tài khoản sẵn có! Bạn nên đăng xuất và đăng nhập lại sau khi cập nhật thành công!');
                                     }
                                     return formik.setFieldValue('maLoaiNguoiDung', value)
                                 }} value={formik.values.maLoaiNguoiDung} />
@@ -102,7 +103,7 @@ export default function Profile(props) {
                 </TabPane>
                 <TabPane tab={<div className='text-lg'>Lịch sử đặt vé</div>} key="2">
                     <div className="flex flex-wrap m-2 justify-center">
-                        <table className="w-full text-center divide-y divide-gray-200">
+                        <table className="w-full text-center divide-y divide-gray-200 scale-[0.7] sm:scale-[1]">
                             <thead className="bg-gray-50">
                                 <tr>
                                     <th className='px-2'>STT</th>

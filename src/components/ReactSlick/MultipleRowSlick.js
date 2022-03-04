@@ -55,7 +55,7 @@ const MultipleRows = (props) => {
             //     </div>
             // </div>
 
-            return <div className={`mb-4 p-2 ${styleSlick['width-item']}`} key={index}>
+            return <div className={`mb-4 p-2  ${styleSlick['width-item']}`} key={index}>
                 <Film phim={phim} />
             </div>
         })
@@ -89,16 +89,23 @@ const MultipleRows = (props) => {
             {
                 breakpoint: 768,
                 settings: {
+                    slidesToShow: 2,
+                    rows: 2
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
                     slidesToShow: 1,
                     rows: 2
                 }
-            }
+            },
         ]
     };
 
     return (
         <div>
-            <ul className="nav nav-pills px-9 py-2 items-center">
+            <ul className="nav nav-pills px-9 py-2 items-center" style={{ color: '#1890ff' }}>
                 <li className="nav-item">
                     <a className="nav-link uppercase text-lg font-semibold" data-toggle="pill" href="#pills-llus" onClick={() => {
                         const action = {
@@ -116,7 +123,7 @@ const MultipleRows = (props) => {
                     }}>Coming soon</a>
                 </li>
                 <li className="ml-auto mr-1">
-                    <Search className='my-3' style={{ width: 200 }} placeholder="Search" allowClear onSearch={onSearch} enterButton />
+                    <Search className='my-3 ' style={{ width: 200 }} placeholder="Search" allowClear onSearch={onSearch} enterButton />
                 </li>
             </ul>
             <div className="tab-content">
